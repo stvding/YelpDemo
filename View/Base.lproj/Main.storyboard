@@ -22,25 +22,49 @@
                                 <rect key="frame" x="0.0" y="7.3333333333333144" width="414" height="736.33333333333348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" alpha="0.69999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fTO-dI-9Lk">
+                                <rect key="frame" x="0.0" y="7.6666666666666856" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="w2B-qF-Bsx">
+                                <rect key="frame" x="188" y="318" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Data..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzo-bT-Equ">
+                                <rect key="frame" x="149" y="365" width="115" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bzo-bT-Equ" firstAttribute="top" secondItem="w2B-qF-Bsx" secondAttribute="bottom" constant="10" id="26k-kT-zLM"/>
+                            <constraint firstItem="fTO-dI-9Lk" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="5fT-57-mQr"/>
+                            <constraint firstItem="fTO-dI-9Lk" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="D41-v5-FBl"/>
                             <constraint firstItem="OUT-gW-9N4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Ehj-R6-fqy"/>
                             <constraint firstItem="OUT-gW-9N4" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="GNg-tJ-aol"/>
                             <constraint firstItem="OUT-gW-9N4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TIP-Ii-fZx"/>
+                            <constraint firstItem="fTO-dI-9Lk" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="jxz-7S-7DJ"/>
+                            <constraint firstItem="bzo-bT-Equ" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="mUU-3m-OqF"/>
+                            <constraint firstItem="w2B-qF-Bsx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="uAV-dM-VjX"/>
                             <constraint firstItem="OUT-gW-9N4" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="v4a-KV-9Gb"/>
+                            <constraint firstItem="fTO-dI-9Lk" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ynv-Uq-ZZx"/>
+                            <constraint firstItem="bzo-bT-Equ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="zQd-iI-4LS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Grocery Stores" id="uBt-Cf-H8C"/>
                     <connections>
+                        <outlet property="blackScreen" destination="fTO-dI-9Lk" id="PIo-sl-3Ep"/>
                         <outlet property="groceryStoreTable" destination="OUT-gW-9N4" id="6II-0A-Csu"/>
+                        <outlet property="loadingText" destination="bzo-bT-Equ" id="jx2-hA-F0p"/>
+                        <outlet property="spinner" destination="w2B-qF-Bsx" id="NTg-uE-vbd"/>
                         <segue destination="umv-8H-cv6" kind="show" identifier="showDetailViewOfGrocery" id="p4i-3M-h1g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="707" y="1003"/>
+            <point key="canvasLocation" x="513" y="974"/>
         </scene>
         <!--Restaurant-->
         <scene sceneID="iJz-yb-LT4">
@@ -54,19 +78,43 @@
                                 <rect key="frame" x="0.0" y="7.3333333333333144" width="414" height="736.33333333333348"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqH-5r-QIp">
+                                <rect key="frame" x="0.0" y="7.6666666666666856" width="414" height="736"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Gqn-wd-Vek">
+                                <rect key="frame" x="188" y="318" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading Data..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvS-q2-ASH">
+                                <rect key="frame" x="149.66666666666666" y="365" width="114.99999999999997" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Gqn-wd-Vek" firstAttribute="centerX" secondItem="uu7-dv-Lc0" secondAttribute="centerX" id="5ji-0L-FFd"/>
+                            <constraint firstItem="dvS-q2-ASH" firstAttribute="centerX" secondItem="uu7-dv-Lc0" secondAttribute="centerX" id="6VD-pn-Xex"/>
                             <constraint firstItem="FSZ-Ef-4hh" firstAttribute="centerX" secondItem="uu7-dv-Lc0" secondAttribute="centerX" id="7vg-bO-ldT"/>
                             <constraint firstItem="FSZ-Ef-4hh" firstAttribute="height" secondItem="7f7-fh-qjM" secondAttribute="height" id="Ao0-vM-Bjm"/>
+                            <constraint firstItem="dvS-q2-ASH" firstAttribute="top" secondItem="Gqn-wd-Vek" secondAttribute="bottom" constant="10" id="ThH-3a-Y6j"/>
+                            <constraint firstItem="hqH-5r-QIp" firstAttribute="width" secondItem="7f7-fh-qjM" secondAttribute="width" id="fHZ-0c-32n"/>
+                            <constraint firstItem="hqH-5r-QIp" firstAttribute="centerY" secondItem="uu7-dv-Lc0" secondAttribute="centerY" id="hUd-5A-YtV"/>
                             <constraint firstItem="FSZ-Ef-4hh" firstAttribute="width" secondItem="7f7-fh-qjM" secondAttribute="width" id="ujR-59-MeH"/>
                             <constraint firstItem="FSZ-Ef-4hh" firstAttribute="centerY" secondItem="uu7-dv-Lc0" secondAttribute="centerY" id="vYN-f7-CfK"/>
+                            <constraint firstItem="hqH-5r-QIp" firstAttribute="height" secondItem="7f7-fh-qjM" secondAttribute="height" id="vZ6-mB-FgW"/>
+                            <constraint firstItem="dvS-q2-ASH" firstAttribute="centerY" secondItem="uu7-dv-Lc0" secondAttribute="centerY" id="wDP-MB-GR1"/>
+                            <constraint firstItem="hqH-5r-QIp" firstAttribute="centerX" secondItem="uu7-dv-Lc0" secondAttribute="centerX" id="wux-TZ-4Bx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uu7-dv-Lc0"/>
                     </view>
                     <navigationItem key="navigationItem" title="Nearby Restaurants" id="W17-kR-dNe"/>
                     <connections>
+                        <outlet property="blackScreen" destination="hqH-5r-QIp" id="WdZ-M2-Sqs"/>
+                        <outlet property="loadingText" destination="dvS-q2-ASH" id="ka0-wo-uoD"/>
                         <outlet property="restaurantTable" destination="FSZ-Ef-4hh" id="Ivq-IP-mEh"/>
+                        <outlet property="spinner" destination="Gqn-wd-Vek" id="xLS-sp-La4"/>
                         <segue destination="umv-8H-cv6" kind="show" identifier="showDetailViewOfRestaurant" id="aLg-Ax-8Mn"/>
                     </connections>
                 </viewController>
@@ -186,6 +234,12 @@
                                     <constraint firstAttribute="width" constant="200" id="JkY-rh-KQq"/>
                                     <constraint firstAttribute="height" constant="200" id="WwP-WO-gdr"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vc5-lD-GpN">
                                 <rect key="frame" x="20" y="74" width="374" height="36"/>

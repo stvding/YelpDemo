@@ -22,6 +22,9 @@
                     <constraints>
                         <constraint firstAttribute="width" secondItem="OS1-5u-OjK" secondAttribute="height" multiplier="1:1" id="ke7-Bs-I2h"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OEj-PT-LDr">
                     <rect key="frame" x="249" y="10" width="866" height="229"/>

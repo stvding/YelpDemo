@@ -11,6 +11,9 @@ import UIKit
 class GroceryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     //MARK: - UI Parts and Variables
     @IBOutlet weak var groceryStoreTable: UITableView!
+    @IBOutlet weak var loadingText: UILabel!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var blackScreen: UIView!
     var groceryStoreId = [String]()
     var isGroceryStoreLoading = false
     var isGroceryStoreLoaded = false
@@ -21,11 +24,13 @@ class GroceryViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.groceryStoreTable.delegate = self
         self.groceryStoreTable.dataSource = self
         self.groceryStoreTable.register(UINib(nibName: "RGCell", bundle:nil), forCellReuseIdentifier: "RGCell")
-        fetchNewData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        if !isGroceryStoreLoaded {
+            fetchNewData()
+        }
     }
     
     //MARK: - TableView Setup
@@ -63,13 +68,30 @@ class GroceryViewController: UIViewController,UITableViewDelegate,UITableViewDat
     //MARK: - Helper
     func fetchNewData(){
         if localDatabase.currentLong != nil && localDatabase.currentLat != nil {
+            isGroceryStoreLoaded = false
+            showLoadingScreen()
             fetchDataUtility.fetchGroceryStoreListByUrl(url: getGroceryByCoordinateUrl(localDatabase.currentLat!,localDatabase.currentLong!), completion: { (isSucceed, restaurantIds) in
                 if isSucceed {
                     self.groceryStoreId = restaurantIds
                 }
+                self.hideLoadingScreen()
+                self.isGroceryStoreLoaded = true
                 self.groceryStoreTable.reloadData()
             })
         }
+    }
+    
+    func showLoadingScreen(){
+        self.blackScreen.isHidden = false
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        self.loadingText.isHidden = false
+    }
+    
+    func hideLoadingScreen(){
+        self.blackScreen.isHidden = true
+        self.spinner.stopAnimating()
+        self.loadingText.isHidden = true
     }
 
     // MARK: - Navigation

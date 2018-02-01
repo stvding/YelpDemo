@@ -12,8 +12,13 @@ import CoreLocation
 class RestaurantViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,CLLocationManagerDelegate {
     //MARK: - UI Parts and Variables
     @IBOutlet weak var restaurantTable: UITableView!
+    @IBOutlet weak var blackScreen: UIView!
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    @IBOutlet weak var loadingText: UILabel!
+    
     var restaurantId = [String]()
     let locationManager = CLLocationManager()
+    var isRestaurantLoaded = false
     
     //MARK: - VC Lifecycle
     override func viewDidLoad() {
@@ -32,6 +37,9 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        if !isRestaurantLoaded {
+            fetchNewData()
+        }
     }
     
     //MARK: - TableView Setup
@@ -80,15 +88,33 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
     
     //MARK: - Helper
     func fetchNewData(){
+        showLoadingScreen()
         if localDatabase.currentLong != nil && localDatabase.currentLat != nil {
+            self.isRestaurantLoaded = false
             fetchDataUtility.fetchRestaurantListByUrl(url: getRestaurantByCoordinateUrl(localDatabase.currentLat!,localDatabase.currentLong!), completion: { (isSucceed, restaurantIds) in
                 if isSucceed {
                     self.restaurantId = restaurantIds
                 }
+                self.hideLoadingScreen()
+                self.isRestaurantLoaded = true
                 self.restaurantTable.reloadData()
             })
         }
     }
+    
+    func showLoadingScreen(){
+        self.blackScreen.isHidden = false
+        self.spinner.isHidden = false
+        self.spinner.startAnimating()
+        self.loadingText.isHidden = false
+    }
+    
+    func hideLoadingScreen(){
+        self.blackScreen.isHidden = true
+        self.spinner.stopAnimating()
+        self.loadingText.isHidden = true
+    }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

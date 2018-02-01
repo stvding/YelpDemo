@@ -46,6 +46,7 @@ class RGTableViewCell: UITableViewCell {
                         DispatchQueue.main.async {
                             if url == URL(string: self.imageUrl!) {
                                 self.restaurantImage.image = UIImage(data: imageData)!
+                                self.restaurantImage.layer.cornerRadius = self.restaurantImage.frame.height / 2
                             }
                         }
                     }
