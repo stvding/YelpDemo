@@ -107,12 +107,14 @@ class RestaurantViewController: UIViewController,UITableViewDelegate,UITableView
         self.spinner.isHidden = false
         self.spinner.startAnimating()
         self.loadingText.isHidden = false
+        self.tabBarController?.tabBar.isHidden = true
     }
     
     func hideLoadingScreen(){
         self.blackScreen.isHidden = true
         self.spinner.stopAnimating()
         self.loadingText.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     
